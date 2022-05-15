@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_34245326536532">34245326536532</string>
+    <string name="mumbai_location">Mumbai Location</string>
+    <string name="_33">33</string>
+    <string name="_45">45</string>
+    <string name="prosent">%</string>
+    <string name="humidity">Humidity</string>
+    <string name="mbar">mBar</string>
+    <string name="pressure">Pressure</string>
+    <string name="_11">11</string>
+</resources>
