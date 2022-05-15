@@ -48,6 +48,7 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
         binding.btnLocation.setOnClickListener(view ->
                 navController.navigate(WeatherFragmentsDirections.actionWeatherFragmentToSearchFragment()));
     }
+
     @Override
     protected void setUpObservers() {
         viewModel.liveData.observe(getViewLifecycleOwner(), new Observer<Recourse<WeatherResponse>>() {
