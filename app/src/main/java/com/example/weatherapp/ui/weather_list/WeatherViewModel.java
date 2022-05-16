@@ -25,8 +25,8 @@ public class WeatherViewModel extends ViewModel {
 
     }
 
-    public void getWeathers(String city) {
-        liveData = repository.getWeathers(city);
+    public void getWeathers(String latitude,String longitude) {
+        liveData = repository.getWeathers(latitude,longitude);
     }
 
 }

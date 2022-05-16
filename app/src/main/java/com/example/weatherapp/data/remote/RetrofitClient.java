@@ -1,7 +1,5 @@
 package com.example.weatherapp.data.remote;
 
-import com.example.weatherapp.data.model.Weather;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

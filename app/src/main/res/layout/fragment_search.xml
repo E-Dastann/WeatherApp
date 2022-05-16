@@ -7,12 +7,12 @@
     tools:context=".ui.weather_list.SearchFragment">
 
     <EditText
-        android:background="@drawable/border_for_edit_text"
         android:id="@+id/et_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="80dp"
+       android:layout_marginTop="20dp"
+        android:background="@drawable/border_for_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,9 +22,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="60dp"
         android:text="GO"
         app:layout_constraintTop_toBottomOf="@id/et_city" />
+    <fragment
+        android:id="@+id/google_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        app:layout_constraintTop_toBottomOf="@id/btn_go"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

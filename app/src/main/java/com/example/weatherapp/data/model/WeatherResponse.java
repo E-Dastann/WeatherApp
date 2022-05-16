@@ -1,13 +1,25 @@
-
 package com.example.weatherapp.data.model;
 
-import java.util.List;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
+@Entity
 public class WeatherResponse {
+    @PrimaryKey(autoGenerate = true)
+    private int idDao;
+
+    public int getIdDao() {
+        return idDao;
+    }
+
+    public void setIdDao(int idDao) {
+        this.idDao = idDao;
+    }
 
     @SerializedName("coord")
     @Expose
