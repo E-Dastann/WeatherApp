@@ -17,7 +17,7 @@ import com.example.weatherapp.data.model.WeatherResponse;
 
 @Database(entities = {WeatherResponse.class}, version = 1)
 @TypeConverters({InfoTypeConverter.class, CloudConverter.class, CoordConverter.class,
-        MainConverter.class, SystemConverter.class, WindConverter.class, ListConverter.class, RainConverter.class})
+        MainConverter.class, SystemConverter.class, WindConverter.class, ListConverter.class,RainConverter.class})
 public abstract class AppDataBase extends RoomDatabase {
     public abstract WeatherDao weatherDao();
 }

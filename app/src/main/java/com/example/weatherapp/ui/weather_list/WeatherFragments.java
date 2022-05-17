@@ -1,5 +1,6 @@
 package com.example.weatherapp.ui.weather_list;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -38,10 +39,8 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
     private WeatherFragmentsArgs args;
     private Sys sys;
     private WeatherMain main;
-    private ArrayList<Weather> weatherList = new ArrayList<>();
     private WeatherResponse weatherMain;
     private Wind wind;
-    private String cityName = "Bishkek";
 
     @Inject
     WeatherDao dao;
@@ -77,12 +76,7 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
 
     @Override
     protected void setUpListeners() {
-        binding.btnLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_weatherFragment_to_searchFragment);
-            }
-        });
+        binding.btnLocation.setOnClickListener(view -> navController.navigate(R.id.action_weatherFragment_to_searchFragment));
     }
 
     @Override
@@ -90,6 +84,7 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
         SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyy HH:mm:ss", Locale.ROOT);
         String s = sdf.format(System.currentTimeMillis());
         viewModel.liveData.observe(getViewLifecycleOwner(), new Observer<Recourse<WeatherResponse>>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(Recourse<WeatherResponse> weatherResponseRecourse) {
                 switch (weatherResponseRecourse.status) {
@@ -109,7 +104,7 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
                         binding.mBar.setText(String.valueOf(weatherResponseRecourse.data.getMain().getPressure()));
                         binding.text23Km.setText(String.valueOf(weatherResponseRecourse.data.getWind().getSpeed()));
                         binding.imageTextCloud.setText(weatherResponseRecourse.data.getWeather().get(0).getMain());
-                        binding.simpleData.setText(String.valueOf(s));
+                          binding.simpleData.setText(String.valueOf(s));
                         binding.dayTime.setText(String.valueOf(weatherResponseRecourse.data.getWind()));
                         int daytime = weatherResponseRecourse.data.getSys().getSunset() - weatherResponseRecourse.data.getSys().getSunrise();
                         binding.dayTime.setText(getHours(daytime));
@@ -133,6 +128,7 @@ public class WeatherFragments extends BaseFragment<FragmentWeatherBinding> {
             }
 
 
+            @SuppressLint("SetTextI18n")
             private void setCurrentWeatherRoom(List<WeatherResponse> weather) {
                 binding.simpleData.setText(sdf.format(java.lang.System.currentTimeMillis()));
                 binding.btnLocation.setText(weather.get(weather.size() -1).getName());
